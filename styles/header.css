@@ -1,8 +1,16 @@
 .header {
     height: 55px;
+    background-color: white;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+
+    border-bottom: 1px solid rgb(225, 221, 221);
 }
 
 .left-section {
@@ -52,11 +60,48 @@
     border: 1px solid rgb(160, 159, 159);
     margin-left: -1px;
     margin-right: 10px;
+    border-radius: 2px;
+}
+
+.search-button, 
+.voice-search,
+.upload-container,
+.apps-container,
+.notifications-container{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-button .tooltip,
+.voice-search .tooltip,
+.upload-container .tooltip,
+.apps-container .tooltip,
+.notifications-container .tooltip{
+    position: absolute;
+    background-color: gray;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 2px;
+    font-size: 12px;
+    bottom: -30px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s;
+    white-space: nowrap;
+}
+
+.search-button:hover .tooltip,
+.voice-search:hover .tooltip,
+.upload-container:hover .tooltip,
+.apps-container:hover .tooltip,
+.notifications-container:hover .tooltip{
+    opacity: 1;
 }
 
 .search-icon{
     height: 25px;
-    margin-top: 4px;
 }
 
 .voice-search{
@@ -69,7 +114,6 @@
 
 .voice-search-icon{
     height: 25px;
-    margin-top: 4px;
 }
 
 .right-section {
@@ -91,6 +135,22 @@
 
 .notifications{
     height: 24px;
+}
+
+.notifications-container{
+    position: relative;
+}
+
+.notifications-count{
+    position: absolute;
+    right: -5px;
+    top: -2px;
+    background-color: rgb(222, 4, 4);
+    color: white;
+    border-radius: 50%;
+    font-size: 11px;
+    z-index: 50;
+    padding: 2px 5px;
 }
 
 .my-channel{
